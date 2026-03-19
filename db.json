@@ -391,7 +391,7 @@
     "Match": "3",
     "Subject": "Local and International Affairs",
     "Question": "Look at the following clip, identify the person",
-    "Answer": "Marion Anne Perrine Le Pen (French far right politician)",
+    "Answer": "<fr>Marion Anne Perrine Le Pen</fr> (French far right politician)",
     "Section": "buzzer",
     "Info": ""
   },
@@ -583,7 +583,7 @@
     "Match": "4",
     "Subject": "Local and International Affairs",
     "Question": "Look at the following clip, identify the person",
-    "Answer": "Michel Barnier (Ousted French PM)",
+    "Answer": "<fr>Michel Barnier</fr> (Ousted French PM)",
     "Section": "buzzer",
     "Info": ""
   },
@@ -738,7 +738,7 @@
     "Round": "1",
     "Match": "4",
     "Subject": "French",
-    "Question": "What is the English translation for Promener le chien?",
+    "Question": "What is the English translation for <fr>Promener le chien</fr>?",
     "Answer": "To walk the dog",
     "Section": "buzzer",
     "Info": ""
@@ -942,7 +942,7 @@
     "Round": "1",
     "Match": "5",
     "Subject": "French",
-    "Question": "What is the English translation for J'ai promené le chien dans le parc?",
+    "Question": "What is the English translation for <fr>J'ai promené le chien dans le parc</fr>?",
     "Answer": "I walked the dog in the park",
     "Section": "buzzer",
     "Info": ""
@@ -1314,7 +1314,7 @@
     "Round": "1",
     "Match": "7",
     "Subject": "French",
-    "Question": "What is the specific English translation for this French sentence: J'ai passé de belles vacances l'été dernier ?",
+    "Question": "What is the specific English translation for this French sentence: <fr>J'ai passé de belles vacances l'été dernier</fr>?",
     "Answer": "I had a beatiful vacation last summer",
     "Section": "buzzer",
     "Info": ""
@@ -1566,7 +1566,7 @@
     "Round": "1",
     "Match": "8",
     "Subject": "French",
-    "Question": "Which item in English is la corde à sauter?",
+    "Question": "Which item in English is <fr>la corde à sauter</fr>?",
     "Answer": "the Skipping rope or jump rope",
     "Section": "buzzer",
     "Info": ""
@@ -1794,7 +1794,7 @@
     "Round": "1",
     "Match": "9",
     "Subject": "French",
-    "Question": "What is the English translation for le coucher de soleil est magnifique?",
+    "Question": "What is the English translation for <fr>le coucher de soleil est magnifique</fr>?",
     "Answer": "The sunset is beautiful",
     "Section": "buzzer",
     "Info": ""
@@ -2022,7 +2022,7 @@
     "Round": "1",
     "Match": "10",
     "Subject": "French",
-    "Question": "What is the English translation for le bébé pleure?",
+    "Question": "What is the English translation for <fr>le bébé pleure</fr>?",
     "Answer": "The baby is crying",
     "Section": "buzzer",
     "Info": ""
@@ -2250,7 +2250,7 @@
     "Round": "1",
     "Match": "11",
     "Subject": "French",
-    "Question": "What is the English translation for le chaton est dans l'arbre?",
+    "Question": "What is the English translation for <fr>le chaton est dans l'arbre</fr>?",
     "Answer": "The kitten is in the tree",
     "Section": "buzzer",
     "Info": ""
@@ -2490,8 +2490,8 @@
     "Round": "1",
     "Match": "12",
     "Subject": "French",
-    "Question": "In a French restaurant, what is le plat principal?",
-    "Answer": "The main course or the entrée",
+    "Question": "In a French restaurant, what is <fr>le plat principal</fr>?",
+    "Answer": "The main course or the <fr>entrée</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -2706,7 +2706,7 @@
     "Round": "1",
     "Match": "13",
     "Subject": "French",
-    "Question": "In a French restaurant, what is le poulet frit et les frites?",
+    "Question": "In a French restaurant, what is <fr>le poulet frit et les frites</fr>?",
     "Answer": "fried chicken and chips",
     "Section": "buzzer",
     "Info": ""
@@ -2922,7 +2922,7 @@
     "Round": "1",
     "Match": "14",
     "Subject": "French",
-    "Question": "What is plat du jour on a menu board in a restaurant?",
+    "Question": "What is <fr>plat du jour</fr> on a menu board in a restaurant?",
     "Answer": "Today's special or dish of the day",
     "Section": "buzzer",
     "Info": ""
@@ -3318,7 +3318,7 @@
     "Round": "1",
     "Match": "16",
     "Subject": "French",
-    "Question": "Which menu item in Jamaica is Cou de dinde?",
+    "Question": "Which menu item in Jamaica is <fr>Cou de dinde</fr>?",
     "Answer": "Turkey neck",
     "Section": "buzzer",
     "Info": ""
@@ -3763,7 +3763,7 @@
     "Match": "19",
     "Subject": "Sports",
     "Question": "Look at the following clip, identify this person.",
-    "Answer": "Michel Platini (French football legend)",
+    "Answer": "<fr>Michel Platini</fr> (French football legend)",
     "Section": "buzzer",
     "Info": ""
   },
@@ -3822,7 +3822,7 @@
     "Round": "1",
     "Match": "19",
     "Subject": "French",
-    "Question": "What is the English translation for j'aime les pommes?",
+    "Question": "What is the English translation for <fr>j'aime les pommes</fr>?",
     "Answer": "I like apples (or I love apples)",
     "Section": "buzzer",
     "Info": ""
@@ -3871,7 +3871,7 @@
     "Match": "19",
     "Subject": "Art",
     "Question": "Which French artist painted the 19th century work \"Music in the Tuileries\"?",
-    "Answer": "Édouard Manet",
+    "Answer": "<fr>Édouard Manet</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -4146,7 +4146,7 @@
     "Round": "1",
     "Match": "20",
     "Subject": "French",
-    "Question": "What is the English equivalent for Premier arrivé, premier servi?",
+    "Question": "What is the English equivalent for <fr>Premier arrivé, premier servi</fr>?",
     "Answer": "First come first serve",
     "Section": "buzzer",
     "Info": ""
@@ -4171,7 +4171,7 @@
     "Match": "20",
     "Subject": "Art",
     "Question": "Which French artist painted the work entitled \"Women in the Garden\"?",
-    "Answer": "Claude Monet",
+    "Answer": "<fr>Claude Monet</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -4398,7 +4398,7 @@
     "Round": "1",
     "Match": "21",
     "Subject": "French",
-    "Question": "Give the English equivalent for Mes deux parents sont en vi.",
+    "Question": "Give the English equivalent for <fr>Mes deux parents sont en vi</fr>.",
     "Answer": "Both my parents are alive",
     "Section": "buzzer",
     "Info": ""
@@ -4638,7 +4638,7 @@
     "Round": "1",
     "Match": "22",
     "Subject": "French",
-    "Question": "What is the English translation for J'ai préparé le dîner hier soir?",
+    "Question": "What is the English translation for <fr>J'ai préparé le dîner hier soir</fr>?",
     "Answer": "I prepared dinner last night",
     "Section": "buzzer",
     "Info": ""
@@ -4842,7 +4842,7 @@
     "Round": "1",
     "Match": "23",
     "Subject": "French",
-    "Question": "What is the English translation for Je suis allé nager à la plage?",
+    "Question": "What is the English translation for <fr>Je suis allé nager à la plage</fr>?",
     "Answer": "I went swimming at the beach",
     "Section": "buzzer",
     "Info": ""
@@ -5082,7 +5082,7 @@
     "Round": "1",
     "Match": "24",
     "Subject": "French",
-    "Question": "What is the English translation for Le lion est un animal fort?",
+    "Question": "What is the English translation for <fr>Le lion est un animal fort</fr>?",
     "Answer": "The lion is a strong animal",
     "Section": "buzzer",
     "Info": ""
@@ -5202,7 +5202,7 @@
     "Round": "2",
     "Match": "25",
     "Subject": "French",
-    "Question": "What is the English translation for le bout de la langue?",
+    "Question": "What is the English translation for <fr>le bout de la langue</fr>?",
     "Answer": "The tip of the tongue",
     "Section": "buzzer",
     "Info": ""
@@ -5406,7 +5406,7 @@
     "Round": "2",
     "Match": "26",
     "Subject": "French",
-    "Question": "What is the English translation of this sign in a restaurant: Pas de pourboire s'il vous plaît?",
+    "Question": "What is the English translation of this sign in a restaurant: <fr>Pas de pourboire s'il vous plaît</fr>?",
     "Answer": "No tipping please",
     "Section": "buzzer",
     "Info": ""
@@ -5455,7 +5455,7 @@
     "Match": "26",
     "Subject": "Art",
     "Question": "Which French painter created the 19th century work \"The Spanish Singer\"?",
-    "Answer": "Édouard Manet",
+    "Answer": "<fr>Édouard Manet</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -5622,7 +5622,7 @@
     "Round": "2",
     "Match": "27",
     "Subject": "French",
-    "Question": "What is the specific English translation for the question: Quel est votre nom de famille?",
+    "Question": "What is the specific English translation for the question: <fr>Quel est votre nom de famille</fr>?",
     "Answer": "What is your surname?",
     "Section": "buzzer",
     "Info": ""
@@ -5814,7 +5814,7 @@
     "Round": "2",
     "Match": "28",
     "Subject": "French",
-    "Question": "What is the English translation for the question: ¿pourriez-vous l'écrire s'il vous plaît?",
+    "Question": "What is the English translation for the question: <fr>¿pourriez-vous l'écrire s'il vous plaît?</fr>",
     "Answer": "Could you write that down for me, please?",
     "Section": "buzzer",
     "Info": ""
@@ -5923,7 +5923,7 @@
     "Match": "29",
     "Subject": "Geography",
     "Question": "Mauritius, an island country in the Indian ocean, does not border any countries but it is closest to which French Island?",
-    "Answer": "Réunion",
+    "Answer": "<fr>Réunion</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -6030,7 +6030,7 @@
     "Round": "2",
     "Match": "29",
     "Subject": "French",
-    "Question": "At a restaurant you asked an employee ¿est-ce que vous acceptez les cartes de crédit? What is the English translation?",
+    "Question": "At a restaurant you asked an employee <fr>¿est-ce que vous acceptez les cartes de crédit?</fr> What is the English translation?",
     "Answer": "Do you accept credit card?",
     "Section": "buzzer",
     "Info": ""
@@ -6258,7 +6258,7 @@
     "Round": "2",
     "Match": "30",
     "Subject": "French",
-    "Question": "What is the English translation for Mon oncle est avocat?",
+    "Question": "What is the English translation for <fr>Mon oncle est avocat</fr>?",
     "Answer": "My uncle is a lawyer",
     "Section": "buzzer",
     "Info": ""
@@ -6498,7 +6498,7 @@
     "Round": "2",
     "Match": "31",
     "Subject": "French",
-    "Question": "What is the English translation for la chatte a donné naissance à douze chatons?",
+    "Question": "What is the English translation for <fr>la chatte a donné naissance à douze chatons</fr>?",
     "Answer": "The cat gave birth to twelve kittens",
     "Section": "buzzer",
     "Info": ""
@@ -6714,7 +6714,7 @@
     "Round": "2",
     "Match": "32",
     "Subject": "French",
-    "Question": "What is the English translation for nous vivons près de la plage?",
+    "Question": "What is the English translation for <fr>nous vivons près de la plage</fr>?",
     "Answer": "We live near the beach",
     "Section": "buzzer",
     "Info": ""
@@ -6763,7 +6763,7 @@
     "Match": "32",
     "Subject": "Art",
     "Question": "Which French artist created the painting \"The Reader\"?",
-    "Answer": "Jean-Honoré Fragonard",
+    "Answer": "<fr>Jean-Honoré Fragonard</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -6942,7 +6942,7 @@
     "Round": "2",
     "Match": "33",
     "Subject": "French",
-    "Question": "What is the English translation for Il neige en hiver?",
+    "Question": "What is the English translation for <fr>Il neige en hiver</fr>?",
     "Answer": "It is snowy in winter",
     "Section": "buzzer",
     "Info": ""
@@ -7194,7 +7194,7 @@
     "Round": "2",
     "Match": "34",
     "Subject": "French",
-    "Question": "The sign: Le papa numéro un au monde is on the wall in your home. What is its English translation?",
+    "Question": "The sign: <fr>Le papa numéro un au monde</fr> is on the wall in your home. What is its English translation?",
     "Answer": "World's Number One dad or Number One Father",
     "Section": "buzzer",
     "Info": ""
@@ -7303,7 +7303,7 @@
     "Match": "35",
     "Subject": "Art",
     "Question": "Which famous French painter created the work \"The Yellow Christ\" in 1889?",
-    "Answer": "Paul Gauguin",
+    "Answer": "<fr>Paul Gauguin</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -7434,7 +7434,7 @@
     "Round": "2",
     "Match": "35",
     "Subject": "French",
-    "Question": "What is the English translation for le cheval noir a gagné la course?",
+    "Question": "What is the English translation for <fr>le cheval noir a gagné la course</fr>?",
     "Answer": "the black horse won the race",
     "Section": "buzzer",
     "Info": ""
@@ -7518,7 +7518,7 @@
     "Round": "2",
     "Match": "36",
     "Subject": "French",
-    "Question": "What is the equivalent English proverb for la charité commence à la maison?",
+    "Question": "What is the equivalent English proverb for <fr>la charité commence à la maison</fr>?",
     "Answer": "Charity begins at home",
     "Section": "buzzer",
     "Info": ""
@@ -7651,7 +7651,7 @@
     "Match": "36",
     "Subject": "General Knowledge",
     "Question": "Which city located on the French Riviera and is the commune located in the Alpes-Maritimes département hosts an international film festival every year?",
-    "Answer": "Cannes",
+    "Answer": "<fr>Cannes</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -7734,7 +7734,7 @@
     "Round": "2",
     "Match": "37",
     "Subject": "French",
-    "Question": "What is the English translation for ma mère vit en Allemagne?",
+    "Question": "What is the English translation for <fr>ma mère vit en Allemagne</fr>?",
     "Answer": "My mother lives in Germany",
     "Section": "buzzer",
     "Info": ""
@@ -7926,7 +7926,7 @@
     "Round": "2",
     "Match": "38",
     "Subject": "French",
-    "Question": "What is the English translation for les vacances d'été se sont terminées en septembre?",
+    "Question": "What is the English translation for <fr>les vacances d'été se sont terminées en septembre</fr>?",
     "Answer": "The summer vacation ended in september",
     "Section": "buzzer",
     "Info": ""
@@ -8118,7 +8118,7 @@
     "Round": "2",
     "Match": "39",
     "Subject": "French",
-    "Question": "What is the English translation for Noël arrive une fois par an?",
+    "Question": "What is the English translation for <fr>Noël arrive une fois par an</fr>?",
     "Answer": "Christmas comes once a year",
     "Section": "buzzer",
     "Info": ""
@@ -8538,7 +8538,7 @@
     "Round": "2",
     "Match": "40",
     "Subject": "French",
-    "Question": "What is the English translation for la maison est l'endroit où se trouve le cœur?",
+    "Question": "What is the English translation for <fr>la maison est l'endroit où se trouve le cœur</fr>?",
     "Answer": "Home is where the heart is.",
     "Section": "buzzer",
     "Info": ""
@@ -8778,7 +8778,7 @@
     "Round": "3",
     "Match": "41",
     "Subject": "French",
-    "Question": "What is the translation for jus d'orange avec de la glace?",
+    "Question": "What is the translation for <fr>jus d'orange avec de la glace,/fr>?",
     "Answer": "Orange juice with ice",
     "Section": "buzzer",
     "Info": ""
@@ -9006,7 +9006,7 @@
     "Round": "3",
     "Match": "42",
     "Subject": "French",
-    "Question": "What is the English translation for il pleut en été?",
+    "Question": "What is the English translation for <fr>il pleut en été</fr>?",
     "Answer": "It rains in the summer",
     "Section": "buzzer",
     "Info": ""
@@ -9234,7 +9234,7 @@
     "Round": "3",
     "Match": "43",
     "Subject": "French",
-    "Question": "What is the English translation for the greeting joyeux trente-cinquième anniversaire?",
+    "Question": "What is the English translation for the greeting <fr>joyeux trente-cinquième anniversaire</fr>?",
     "Answer": "Happy Thirty Fifth birthday",
     "Section": "buzzer",
     "Info": ""
@@ -9462,7 +9462,7 @@
     "Round": "3",
     "Match": "44",
     "Subject": "French",
-    "Question": "What is the English translation for Je suis né en mille neuf cent cinquante six?",
+    "Question": "What is the English translation for <fr>Je suis né en mille neuf cent cinquante six</fr>?",
     "Answer": "I was born in 1956",
     "Section": "buzzer",
     "Info": ""
@@ -9931,7 +9931,7 @@
     "Match": "47",
     "Subject": "Art",
     "Question": "Which French arist created the painting \"Orphan girl at the cemetery\"?",
-    "Answer": "Eugène Delacroix",
+    "Answer": "<fr>Eugène Delacroix</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -10015,7 +10015,7 @@
     "Match": "47",
     "Subject": "Sports",
     "Question": "Look at the following clip, identify this person.",
-    "Answer": "Arsène Wenger (Former French Football Manager)",
+    "Answer": "<fr>Arsène Wenger</fr> (Former French Football Manager)",
     "Section": "buzzer",
     "Info": ""
   },
@@ -10098,7 +10098,7 @@
     "Round": "3",
     "Match": "47",
     "Subject": "French",
-    "Question": "Give the English translation for J'ai faim et soif le matin?",
+    "Question": "Give the English translation for <fr>J'ai faim et soif le matin</fr>?",
     "Answer": "I am hungry and thirsty in the morning",
     "Section": "buzzer",
     "Info": ""
@@ -10326,7 +10326,7 @@
     "Round": "3",
     "Match": "48",
     "Subject": "French",
-    "Question": "What is the English translation for Le cheval les le sport de rois?",
+    "Question": "What is the English translation for <fr>Le cheval les le sport de rois</fr>?",
     "Answer": "Horse racing is a sport of kings",
     "Section": "buzzer",
     "Info": ""
@@ -10530,7 +10530,7 @@
     "Round": "4",
     "Match": "49",
     "Subject": "French",
-    "Question": "Give the English translation for the command Chantons une chanson ensemble.",
+    "Question": "Give the English translation for the command <fr>Chantons une chanson ensemble</fr>.",
     "Answer": "Let us sing a song together",
     "Section": "buzzer",
     "Info": ""
@@ -10746,7 +10746,7 @@
     "Round": "4",
     "Match": "50",
     "Subject": "French",
-    "Question": "What is the English translation for les filles ont gagné la course l'année dernière?",
+    "Question": "What is the English translation for <fr>les filles ont gagné la course l'année dernière</fr>?",
     "Answer": "The girls won the race last year",
     "Section": "buzzer",
     "Info": ""
@@ -10962,7 +10962,7 @@
     "Round": "4",
     "Match": "51",
     "Subject": "French",
-    "Question": "What is the English translation for ma mère prépare un gâteau pour mon anniversaire?",
+    "Question": "What is the English translation for <fr>ma mère prépare un gâteau pour mon anniversaire</fr>?",
     "Answer": "My mother is baking a cake for my birthday",
     "Section": "buzzer",
     "Info": ""
@@ -11166,7 +11166,7 @@
     "Round": "4",
     "Match": "52",
     "Subject": "French",
-    "Question": "What is the English translation for Noël n'arrive qu'une fois par an?",
+    "Question": "What is the English translation for <fr>Noël n'arrive qu'une fois par an</fr>?",
     "Answer": "Christmas only comes once a year",
     "Section": "buzzer",
     "Info": ""
@@ -11250,7 +11250,7 @@
     "Round": "4",
     "Match": "53",
     "Subject": "French",
-    "Question": "Give the English translation for Je suis étudiant à l'université.",
+    "Question": "Give the English translation for <fr>Je suis étudiant à l'université</fr>.",
     "Answer": "I am a University Student",
     "Section": "buzzer",
     "Info": ""
@@ -11430,7 +11430,7 @@
     "Round": "4",
     "Match": "53",
     "Subject": "French",
-    "Question": "What is the English translation for La salle de prière?",
+    "Question": "What is the English translation for <fr>La salle de prière,/fr>?",
     "Answer": "The Prayer Room",
     "Section": "buzzer",
     "Info": ""
@@ -11466,7 +11466,7 @@
     "Round": "4",
     "Match": "54",
     "Subject": "French",
-    "Question": "What is the English translation for Le bus est arrivé tôt dimanche?",
+    "Question": "What is the English translation for <fr>Le bus est arrivé tôt dimanche</fr>?",
     "Answer": "The bus arrived early on Sunday",
     "Section": "buzzer",
     "Info": ""
@@ -12246,7 +12246,7 @@
     "Round": "4",
     "Match": "57",
     "Subject": "French",
-    "Question": "What is the English translation for la pauvreté est un crime grave?",
+    "Question": "What is the English translation for <fr>la pauvreté est un crime grave</fr>?",
     "Answer": "Poverty is a serious crime",
     "Section": "buzzer",
     "Info": ""
@@ -12295,7 +12295,7 @@
     "Match": "58",
     "Subject": "Art",
     "Question": "Which French Post-Impressionist artist painted the 19th century work \"Young Woman Powdering Herself\"?",
-    "Answer": "Georges Seurat",
+    "Answer": "<fr>Georges Seurat</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -12510,7 +12510,7 @@
     "Round": "4",
     "Match": "58",
     "Subject": "French",
-    "Question": "What is the English translation for La hâte fait du gaspillage?",
+    "Question": "What is the English translation for <fr>La hâte fait du gaspillage</fr>?",
     "Answer": "Haste makes waste",
     "Section": "buzzer",
     "Info": ""
@@ -12762,7 +12762,7 @@
     "Round": "5",
     "Match": "59",
     "Subject": "French",
-    "Question": "Which specific meal is le petit déjeuner?",
+    "Question": "Which specific meal is <fr>le petit déjeuner</fr>?",
     "Answer": "Breakfast",
     "Section": "buzzer",
     "Info": ""
@@ -12978,7 +12978,7 @@
     "Round": "5",
     "Match": "60",
     "Subject": "French",
-    "Question": "What is the English translation for Les chiens blancs poursuivent les chats noirs?",
+    "Question": "What is the English translation for <fr>Les chiens blancs poursuivent les chats noirs</fr>?",
     "Answer": "The white dogs are chasing the black cats",
     "Section": "buzzer",
     "Info": ""
@@ -13003,7 +13003,7 @@
     "Match": "61",
     "Subject": "Art",
     "Question": "Which 20th century French painter created the work \"Violin and Candlestick\" in 1910?",
-    "Answer": "Georges Braque",
+    "Answer": "<fr>Georges Braque</fr>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -13146,7 +13146,7 @@
     "Round": "5",
     "Match": "61",
     "Subject": "French",
-    "Question": "What is the English translation for les étoiles sont dans le ciel?",
+    "Question": "What is the English translation for <fr>les étoiles sont dans le ciel</fr>?",
     "Answer": "The stars are in the sky",
     "Section": "buzzer",
     "Info": ""
@@ -13242,7 +13242,7 @@
     "Round": "5",
     "Match": "62",
     "Subject": "French",
-    "Question": "What is the English translation for Je vis ma meilleure vie?",
+    "Question": "What is the English translation for <fr>Je vis ma meilleure vie</fr>?",
     "Answer": "I'm living my best life",
     "Section": "buzzer",
     "Info": ""
@@ -13267,7 +13267,7 @@
     "Match": "62",
     "Subject": "Art",
     "Question": "The Floor Scrapers was the name of a 19th century work by which French Impressionist Painter?",
-    "Answer": "Gustave Caillebotte",
+    "Answer": "<fr>Gustave Caillebotte</fr>",
     "Section": "buzzer",
     "Info": ""
   },

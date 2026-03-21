@@ -90,7 +90,7 @@
     "Round": "1",
     "Match": "1",
     "Subject": "Spanish",
-    "Question": "What is the English translation for the question: ¿Cuánto tiempo llevas trabajando allí?",
+    "Question": "What is the English translation for the question: <es>¿Cuánto tiempo llevas trabajando allí?</es>",
     "Answer": "How long have you been working there?",
     "Section": "buzzer",
     "Info": ""
@@ -270,7 +270,7 @@
     "Round": "1",
     "Match": "2",
     "Subject": "Spanish",
-    "Question": "Which five letter adjective starting with \"F\" is an English translation for the Spanish adjective nebuloso?",
+    "Question": "Which five letter adjective starting with \"F\" is an English translation for the Spanish adjective <es>nebuloso</es>?",
     "Answer": "Foggy",
     "Section": "buzzer",
     "Info": ""
@@ -438,7 +438,7 @@
     "Round": "1",
     "Match": "3",
     "Subject": "Spanish",
-    "Question": "What grocery items are el arroz y la harina?",
+    "Question": "What grocery items are <es>el arroz y la harina</es>?",
     "Answer": "Rice and flour",
     "Section": "buzzer",
     "Info": ""
@@ -630,7 +630,7 @@
     "Round": "1",
     "Match": "4",
     "Subject": "Spanish",
-    "Question": "What menu item is sándwich de carne asada?",
+    "Question": "What menu item is <es>sándwich de carne asada</es>?",
     "Answer": "Roast beef sandwich",
     "Section": "buzzer",
     "Info": ""
@@ -834,7 +834,7 @@
     "Round": "1",
     "Match": "5",
     "Subject": "Spanish",
-    "Question": "In a building, what important item is el extintor de incendios?",
+    "Question": "In a building, what important item is <es>el extintor de incendios</es>?",
     "Answer": "Fire extinguisher",
     "Section": "buzzer",
     "Info": ""
@@ -1038,7 +1038,7 @@
     "Round": "1",
     "Match": "6",
     "Subject": "Spanish",
-    "Question": "What is the English translation for comi el almuerzo en la escuela?",
+    "Question": "What is the English translation for <es>comi el almuerzo en la escuela</es>?",
     "Answer": "I ate lunch at school",
     "Section": "buzzer",
     "Info": ""
@@ -1206,8 +1206,8 @@
     "Round": "1",
     "Match": "7",
     "Subject": "Spanish",
-    "Question": "What is the first person preterite tense of the verb Llamar?",
-    "Answer": "llamé",
+    "Question": "What is the first person preterite tense of the verb <es>Llamar</es>?",
+    "Answer": "<es>llamé</es>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -1458,7 +1458,7 @@
     "Round": "1",
     "Match": "8",
     "Subject": "Spanish",
-    "Question": "What is the English translation of this popular student excuse: el perro se comió mi tarea?",
+    "Question": "What is the English translation of this popular student excuse: <es>el perro se comió mi tarea</es>?",
     "Answer": "The dog ate my homework",
     "Section": "buzzer",
     "Info": ""
@@ -1686,7 +1686,7 @@
     "Round": "1",
     "Match": "9",
     "Subject": "Spanish",
-    "Question": "What is the English translation for una docena de panadero?",
+    "Question": "What is the English translation for <es>una docena de panadero</es>?",
     "Answer": "A baker's dozen",
     "Section": "buzzer",
     "Info": ""
@@ -1914,7 +1914,7 @@
     "Round": "1",
     "Match": "10",
     "Subject": "Spanish",
-    "Question": "What is the English translation for la conductora estaba acelerando?",
+    "Question": "What is the English translation for <es>la conductora estaba acelerando</es>?",
     "Answer": "The driver was speeding",
     "Section": "buzzer",
     "Info": ""
@@ -2142,7 +2142,7 @@
     "Round": "1",
     "Match": "11",
     "Subject": "Spanish",
-    "Question": "What is the meaning of the expression a la izquierda de?",
+    "Question": "What is the meaning of the expression <es>a la izquierda de</es>?",
     "Answer": "To the left of",
     "Section": "buzzer",
     "Info": ""
@@ -2382,8 +2382,8 @@
     "Round": "1",
     "Match": "12",
     "Subject": "Spanish",
-    "Question": "What is the first person present tense of the verb traer?",
-    "Answer": "Yo Traigo",
+    "Question": "What is the first person present tense of the verb <es>traer</es>?",
+    "Answer": "<es>Yo Traigo</es>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -2598,7 +2598,7 @@
     "Round": "1",
     "Match": "13",
     "Subject": "Spanish",
-    "Question": "What activity is el montar a caballo?",
+    "Question": "What activity is <es>el montar a caballo</es>?",
     "Answer": "Horseback riding",
     "Section": "buzzer",
     "Info": ""
@@ -2814,7 +2814,7 @@
     "Round": "1",
     "Match": "14",
     "Subject": "Spanish",
-    "Question": "What is the English translation for las flores estan floreciendo?",
+    "Question": "What is the English translation for <es>las flores estan floreciendo</es>?",
     "Answer": "The flowers are blooming",
     "Section": "buzzer",
     "Info": ""
@@ -3018,7 +3018,7 @@
     "Round": "1",
     "Match": "15",
     "Subject": "Spanish",
-    "Question": "What is the English translation for Estaré en casa para Navidad?",
+    "Question": "What is the English translation for <es>Estaré en casa para Navidad</es>?",
     "Answer": "I will be home for Christmas",
     "Section": "buzzer",
     "Info": ""
@@ -3210,7 +3210,7 @@
     "Round": "1",
     "Match": "16",
     "Subject": "Spanish",
-    "Question": "What is the English translation for fui a México para mi quincuagésimo cumpleaños?",
+    "Question": "What is the English translation for <es>fui a México para mi quincuagésimo cumpleaños</es>?",
     "Answer": "I went to Mexico for my 50th birthday",
     "Section": "buzzer",
     "Info": ""
@@ -3414,7 +3414,7 @@
     "Round": "1",
     "Match": "17",
     "Subject": "Spanish",
-    "Question": "What is the English translation for La niña tiene miedo a las ranas?",
+    "Question": "What is the English translation for <es>La niña tiene miedo a las ranas</es>?",
     "Answer": "The girl is afraid of frogs",
     "Section": "buzzer",
     "Info": ""
@@ -3606,7 +3606,7 @@
     "Round": "1",
     "Match": "18",
     "Subject": "Spanish",
-    "Question": "What is the English translation for la mujer perdió su anillo de bodas.?",
+    "Question": "What is the English translation for <es>la mujer perdió su anillo de bodas</es>?",
     "Answer": "The woman lost her wedding ring",
     "Section": "buzzer",
     "Info": ""
@@ -3942,7 +3942,7 @@
     "Round": "1",
     "Match": "19",
     "Subject": "Spanish",
-    "Question": "What is the English translation for la gata blanca dio a luz gatitos?",
+    "Question": "What is the English translation for <es>la gata blanca dio a luz gatitos</es>?",
     "Answer": "The white cat gave birth to kittens",
     "Section": "buzzer",
     "Info": ""
@@ -4038,7 +4038,7 @@
     "Round": "1",
     "Match": "20",
     "Subject": "Spanish",
-    "Question": "Give the equivalent English expression for El primer ministro de Jamaica es mi amigo.",
+    "Question": "Give the equivalent English expression for <es>El primer ministro de Jamaica es mi amigo</es>.",
     "Answer": "The Prime Minister of Jamaica is my friend",
     "Section": "buzzer",
     "Info": ""
@@ -4290,7 +4290,7 @@
     "Round": "1",
     "Match": "21",
     "Subject": "Spanish",
-    "Question": "What is the English translation for Nací en mil novecientos cincuenta y cinco?",
+    "Question": "What is the English translation for <es>Nací en mil novecientos cincuenta y cinco</es>?",
     "Answer": "I was born in 1955",
     "Section": "buzzer",
     "Info": ""
@@ -4530,7 +4530,7 @@
     "Round": "1",
     "Match": "22",
     "Subject": "Spanish",
-    "Question": "What is the equivalent English proverb for muchas manos hacen el trabajo mas liviano?",
+    "Question": "What is the equivalent English proverb for <es>muchas manos hacen el trabajo mas liviano</es>?",
     "Answer": "Many hands make light work",
     "Section": "buzzer",
     "Info": ""
@@ -4735,7 +4735,7 @@
     "Match": "23",
     "Subject": "Spanish",
     "Question": "What is the Spanish word for the vegetable, the cucumber?",
-    "Answer": "el pepino",
+    "Answer": "<es>el pepino</es>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -4974,7 +4974,7 @@
     "Round": "1",
     "Match": "24",
     "Subject": "Spanish",
-    "Question": "What is the English translation for the two vegetables la zanahoria y el apio?",
+    "Question": "What is the English translation for the two vegetables <es>la zanahoria y el apio</es>?",
     "Answer": "The carrot and the celery",
     "Section": "buzzer",
     "Info": ""
@@ -6378,7 +6378,7 @@
     "Round": "2",
     "Match": "30",
     "Subject": "Spanish",
-    "Question": "What is the English translation for the menu item las albóndigas?",
+    "Question": "What is the English translation for the menu item <es>las albóndigas</es>?",
     "Answer": "Meatballs",
     "Section": "buzzer",
     "Info": ""
@@ -7063,7 +7063,7 @@
     "Match": "33",
     "Subject": "Spanish",
     "Question": "How do you say \"Love is blind\" in Spanish?",
-    "Answer": "el amor es ciego",
+    "Answer": "<es>el amor es ciego</es>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -7410,7 +7410,7 @@
     "Round": "2",
     "Match": "35",
     "Subject": "Spanish",
-    "Question": "What is the English translation for ser sonámbulo?",
+    "Question": "What is the English translation for <es>ser sonámbulo</es>?",
     "Answer": "To sleep walk",
     "Section": "buzzer",
     "Info": ""
@@ -7662,7 +7662,7 @@
     "Round": "2",
     "Match": "36",
     "Subject": "Spanish",
-    "Question": "What is the English translation for enero es el primer mes del año?",
+    "Question": "What is the English translation for <es>enero es el primer mes del año</es>?",
     "Answer": "January is the first month of the year",
     "Section": "buzzer",
     "Info": ""
@@ -7842,7 +7842,7 @@
     "Round": "2",
     "Match": "37",
     "Subject": "Spanish",
-    "Question": "What is the English translation for la profesora es aburrida?",
+    "Question": "What is the English translation for <es>la profesora es aburrida</es>?",
     "Answer": "The teacher is boring",
     "Section": "buzzer",
     "Info": ""
@@ -8070,7 +8070,7 @@
     "Round": "2",
     "Match": "38",
     "Subject": "Spanish",
-    "Question": "What is the English translation for fui al mercado el sábado pasado?",
+    "Question": "What is the English translation for <es>fui al mercado el sábado pasado</es>?",
     "Answer": "I went to the market last Saturday",
     "Section": "buzzer",
     "Info": ""
@@ -8143,7 +8143,7 @@
     "Match": "39",
     "Subject": "Art",
     "Question": "Metamorphosis of Narcissus is an oil on canvas painting by which Spanish artist?",
-    "Answer": "Salvador Dalí",
+    "Answer": "<es>Salvador Dalí</es>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -8262,7 +8262,7 @@
     "Round": "2",
     "Match": "39",
     "Subject": "Spanish",
-    "Question": "What is the English translation for mi apellido es dificil de pronunciar?",
+    "Question": "What is the English translation for <es>mi apellido es dificil de pronunciar</es>?",
     "Answer": "My surname is difficult to pronounce",
     "Section": "buzzer",
     "Info": ""
@@ -8275,7 +8275,7 @@
     "Match": "39",
     "Subject": "Theatre and Cinema",
     "Question": "Look at the following clip, identify this person.",
-    "Answer": "Antonio Banderas (Spanish actor)",
+    "Answer": "<es>Antonio Banderas</es> (Spanish actor)",
     "Section": "buzzer",
     "Info": ""
   },
@@ -8322,7 +8322,7 @@
     "Round": "2",
     "Match": "40",
     "Subject": "Spanish",
-    "Question": "What is the English translation for portada de revista?",
+    "Question": "What is the English translation for <es>portada de revista</es>?",
     "Answer": "Magazine cover",
     "Section": "buzzer",
     "Info": ""
@@ -8682,7 +8682,7 @@
     "Round": "3",
     "Match": "41",
     "Subject": "Spanish",
-    "Question": "What is the English translation for the command olvídalo?",
+    "Question": "What is the English translation for the command <es>olvídalo</es>?",
     "Answer": "Forget about it",
     "Section": "buzzer",
     "Info": ""
@@ -8839,7 +8839,7 @@
     "Match": "42",
     "Subject": "Spanish",
     "Question": "How do you say \"The bride\" in Spanish?",
-    "Answer": "la novia",
+    "Answer": "<es>la novia</es>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -9042,7 +9042,7 @@
     "Round": "3",
     "Match": "43",
     "Subject": "Spanish",
-    "Question": "What is the English translation for llegué tarde al trabajo?",
+    "Question": "What is the English translation for <es>llegué tarde al trabajo</es>?",
     "Answer": "I arrived late for work",
     "Section": "buzzer",
     "Info": ""
@@ -9438,7 +9438,7 @@
     "Round": "3",
     "Match": "44",
     "Subject": "Spanish",
-    "Question": "What is the equivalent English proverb for A caballo regalado no le mires los dientes?",
+    "Question": "What is the equivalent English proverb for <es>A caballo regalado no le mires los dientes</es>?",
     "Answer": "Don't look a gift horse in the mouth",
     "Section": "buzzer",
     "Info": ""
@@ -9510,7 +9510,7 @@
     "Round": "3",
     "Match": "45",
     "Subject": "Spanish",
-    "Question": "What is the English translation for estaré en España el año que viene?",
+    "Question": "What is the English translation for <es>estaré en España el año que viene</es>?",
     "Answer": "I will be in Spain next year",
     "Section": "buzzer",
     "Info": ""
@@ -9822,8 +9822,8 @@
     "Round": "3",
     "Match": "46",
     "Subject": "Spanish",
-    "Question": "What is the first person singular imperfect tense of the verb vivir?",
-    "Answer": "Yo Vivia",
+    "Question": "What is the first person singular imperfect tense of the verb <es>vivir</es>?",
+    "Answer": "<es>Yo Vivia</es>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -10002,7 +10002,7 @@
     "Round": "3",
     "Match": "47",
     "Subject": "Spanish",
-    "Question": "What is the English translation for el sol brillará  mañana?",
+    "Question": "What is the English translation for <es>el sol brillará mañana</es>?",
     "Answer": "The sun will shine tomorrow",
     "Section": "buzzer",
     "Info": ""
@@ -10242,7 +10242,7 @@
     "Round": "3",
     "Match": "48",
     "Subject": "Spanish",
-    "Question": "Translate to English mi madre es británica.",
+    "Question": "Translate to English <es>mi madre es británica</es>.",
     "Answer": "My mother is British",
     "Section": "buzzer",
     "Info": ""
@@ -10374,7 +10374,7 @@
     "Round": "4",
     "Match": "49",
     "Subject": "Spanish",
-    "Question": "What is the English translation for muchos ríos que cruzar?",
+    "Question": "What is the English translation for <es>muchos ríos que cruzar</es>?",
     "Answer": "Many rivers to cross",
     "Section": "buzzer",
     "Info": ""
@@ -10578,7 +10578,7 @@
     "Round": "4",
     "Match": "50",
     "Subject": "Spanish",
-    "Question": "What is the English translation for Llegué temprano al estadio para el partido de fútbol?",
+    "Question": "What is the English translation for <es>Llegué temprano al estadio para el partido de fútbol</es>?",
     "Answer": "I arrived early at the stadium for the football match",
     "Section": "buzzer",
     "Info": ""
@@ -10794,7 +10794,7 @@
     "Round": "4",
     "Match": "51",
     "Subject": "Spanish",
-    "Question": "What is the English translation for the menu item las albóndigas?",
+    "Question": "What is the English translation for the menu item <es>las albóndigas</es>?",
     "Answer": "Meatballs",
     "Section": "buzzer",
     "Info": ""
@@ -11023,7 +11023,7 @@
     "Match": "52",
     "Subject": "Spanish",
     "Question": "How do you say \"I will see\", which is the first person future tense?",
-    "Answer": "Yo veré",
+    "Answer": "<es>Yo veré</es>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -11322,7 +11322,7 @@
     "Round": "4",
     "Match": "53",
     "Subject": "Spanish",
-    "Question": "What is the English translation for the idiom: Dos son compañía y tres son multitud?",
+    "Question": "What is the English translation for the idiom: <es>Dos son compañía y tres son multitud</es>?",
     "Answer": "Two is company, three is a crowd",
     "Section": "buzzer",
     "Info": ""
@@ -11514,7 +11514,7 @@
     "Round": "4",
     "Match": "54",
     "Subject": "Spanish",
-    "Question": "Given the English translation for Muchas aves vuelan de norte a sur durante el invierno.",
+    "Question": "Given the English translation for <es>Muchas aves vuelan de norte a sur durante el invierno</es>.",
     "Answer": "Many birds fly from north to south during the winter",
     "Section": "buzzer",
     "Info": ""
@@ -11742,7 +11742,7 @@
     "Round": "4",
     "Match": "55",
     "Subject": "Spanish",
-    "Question": "What is the English translation for La chofer esta conduciendo?",
+    "Question": "What is the English translation for <es>La chofer esta conduciendo</es>?",
     "Answer": "The Chauffeur is driving",
     "Section": "buzzer",
     "Info": ""
@@ -11898,7 +11898,7 @@
     "Round": "4",
     "Match": "56",
     "Subject": "Spanish",
-    "Question": "What is the English translation for Conduje al mercado el sábado?",
+    "Question": "What is the English translation for <es>Conduje al mercado el sábado</es>?",
     "Answer": "I drove to the market on Saturday",
     "Section": "buzzer",
     "Info": ""
@@ -12090,7 +12090,7 @@
     "Round": "4",
     "Match": "57",
     "Subject": "Spanish",
-    "Question": "What menu item at a restaurant is El batido de leche?",
+    "Question": "What menu item at a restaurant is <es>El batido de leche</es>?",
     "Answer": "The milk shake",
     "Section": "buzzer",
     "Info": ""
@@ -12318,7 +12318,7 @@
     "Round": "4",
     "Match": "58",
     "Subject": "Spanish",
-    "Question": "Give the English translation for La Maestra del año es María.",
+    "Question": "Give the English translation for <es>La Maestra del año es María</es>.",
     "Answer": "The Teacher of the Year is Mary",
     "Section": "buzzer",
     "Info": ""
@@ -12570,7 +12570,7 @@
     "Round": "5",
     "Match": "59",
     "Subject": "Spanish",
-    "Question": "Give the English translation of this question: ¿Quién condujo el auto a la playa?",
+    "Question": "Give the English translation of this question: <es>¿Quién condujo el auto a la playa?</es>",
     "Answer": "Who drove the car to the beach?",
     "Section": "buzzer",
     "Info": ""
@@ -12906,7 +12906,7 @@
     "Round": "5",
     "Match": "60",
     "Subject": "Spanish",
-    "Question": "What is the English translation for Mañana por la noche cenaremos a las seis?",
+    "Question": "What is the English translation for <es>Mañana por la noche cenaremos a las seis</es>?",
     "Answer": "Tomorrow night we will have dinner at six",
     "Section": "buzzer",
     "Info": ""
@@ -13099,7 +13099,7 @@
     "Match": "61",
     "Subject": "Spanish",
     "Question": "How do you say Five Hundred and Fifty Five in Spanish?",
-    "Answer": "Quinientos cincuenta y cinco",
+    "Answer": "<es>Quinientos cincuenta y cinco</es>",
     "Section": "buzzer",
     "Info": ""
   },
@@ -13350,7 +13350,7 @@
     "Round": "5",
     "Match": "62",
     "Subject": "Spanish",
-    "Question": "What is the English translation for La hora de la oración está cerca?",
+    "Question": "What is the English translation for <es>La hora de la oración está cerca</es>?",
     "Answer": "The hour of prayer is near.",
     "Section": "buzzer",
     "Info": ""

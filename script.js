@@ -2678,4 +2678,18 @@ function fcNav(dir) {
 // ════════════════════════════════════
 //  KICK OFF
 // ════════════════════════════════════
-document.addEventListener('DOMContentLoaded', init);
+// document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', async () => {
+
+  // ── Replace 'YOUR_SLUG_HERE' with the slug you register in Step 5 ──
+  const auth = await requireAppAccess('b25', 'no-access.html');
+  if (!auth) return;   // auth handles the redirect; just stop here
+
+  // Remove the loading overlay
+  const loader = document.getElementById('page-loader');
+  if (loader) loader.remove();
+
+  // Call your original init function — completely unchanged
+  await init();   // ← replace init() with your actual function name
+
+});

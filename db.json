@@ -2130,6 +2130,7 @@
     "Subject": "Music",
     "Question": "Listen to the clip, identify the singer",
     "Answer": "Tenor Saw (Ring the alarm)",
+    "YoutubeUrl": "https://www.youtube.com/watch?v=UpjLLw-cVzU",
     "Section": "buzzer",
     "Info": ""
   },
@@ -2370,6 +2371,7 @@
     "Subject": "Music",
     "Question": "Listen to the clip, identify the singer",
     "Answer": "Peabo Bryson (Can you stop the rain)",
+    "YoutubeUrl": "https://www.youtube.com/watch?v=Vt9yRFWvY8s",
     "Section": "buzzer",
     "Info": ""
   },
@@ -2586,6 +2588,7 @@
     "Subject": "Music",
     "Question": "Listen to the clip, identify the singer",
     "Answer": "Bruce Springsteen (Dancing in the Dark)",
+    "YoutubeUrl": "https://www.youtube.com/watch?v=129kuDCQtHs",
     "Section": "buzzer",
     "Info": ""
   },
@@ -2802,6 +2805,7 @@
     "Subject": "Music",
     "Question": "Listen to the clip, identify the singer",
     "Answer": "Mariah Carey (It's a wrap)",
+    "YoutubeUrl": "https://www.youtube.com/watch?v=129kuDCQtHs",
     "Section": "buzzer",
     "Info": ""
   },
@@ -3006,6 +3010,7 @@
     "Subject": "Music",
     "Question": "Listen to the clip, identify the singer",
     "Answer": "Millie Small (What Am I Living For)",
+    "YoutubeUrl": "https://www.youtube.com/watch?v=EarHf_OkFr0",
     "Section": "buzzer",
     "Info": ""
   },
@@ -3198,6 +3203,7 @@
     "Subject": "Music",
     "Question": "Listen to the clip, give the title of the song",
     "Answer": "Saturn (SZA)",
+    "YoutubeUrl": "https://www.youtube.com/watch?v=V2G8ESoDXm8",
     "Section": "buzzer",
     "Info": ""
   },
@@ -3402,6 +3408,7 @@
     "Subject": "Music",
     "Question": "Listen to the clip, give the title of the song",
     "Answer": "Perfidia (Phyllis Dillon)",
+    "YoutubeUrl": "https://www.youtube.com/watch?v=ZnXIM3yPhw4",
     "Section": "buzzer",
     "Info": ""
   },
@@ -3594,6 +3601,7 @@
     "Subject": "Music",
     "Question": "Listen to the clip, give the title of the song",
     "Answer": "Say You Say Me (Lionel Richie)",
+    "YoutubeUrl": "https://www.youtube.com/watch?v=9OfoTaLXrUo",
     "Section": "buzzer",
     "Info": ""
   },
@@ -3846,6 +3854,7 @@
     "Subject": "Music",
     "Question": "Listen to the clip, give the title of the song",
     "Answer": "Flowers (Miley Cyrus)",
+    "YoutubeUrl": "https://www.youtube.com/watch?v=G7KNmW9a75Y",
     "Section": "buzzer",
     "Info": ""
   },
@@ -4026,6 +4035,7 @@
     "Subject": "Music",
     "Question": "Listen to the clip, give the title of the song",
     "Answer": "Midnight Train to Georgia (Gladys Knight and the Pips)",
+    "YoutubeUrl": "https://www.youtube.com/watch?v=A0F9lh8TiSM",
     "Section": "buzzer",
     "Info": ""
   },

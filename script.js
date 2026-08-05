@@ -17,13 +17,24 @@ const state = {
   pageSize:     50,
   currentMode:  'table',
 
+  // Feature flags — populated from Supabase after login, before init()
+  // renders anything. features[key] === true means the widget shows.
+  // isAdmin controls whether the Admin tab is revealed at all.
+  features: {},
+  isAdmin:  false,
+
   columns: [
     { key: 'Pkey',    label: 'Pkey',    visible: false, type: 'num' },
     { key: 'Qkey',    label: 'Qkey',    visible: false, type: 'num' },
+    // QType distinguishes Competition rows (Year/Round/Match/Section apply)
+    // from Training rows (Category applies instead). Legacy rows with no
+    // QType are treated as Competition — see getQType().
+    { key: 'QType',   label: 'Type',    visible: true,  type: 'str' },
     { key: 'Year',    label: 'Year',    visible: true,  type: 'num' },
     { key: 'Round',   label: 'Round',   visible: true,  type: 'num' },
     { key: 'Match',   label: 'Match',   visible: true,  type: 'num' },
     { key: 'Subject', label: 'Subject', visible: true,  type: 'str' },
+    { key: 'Category',label: 'Category',visible: true,  type: 'str' },
     { key: 'Question',label: 'Question',visible: true,  type: 'str' },
     { key: 'Answer',  label: 'Answer',  visible: true,  type: 'str' },
     { key: 'Section', label: 'Section', visible: true,  type: 'str' },
@@ -66,10 +77,12 @@ const dom = {
   themeToggle:     $('themeToggle'),
   globalSearch:    $('globalSearch'),
   searchClear:     $('searchClear'),
+  filterType:      $('filterType'),
   filterYear:      $('filterYear'),
   filterRound:     $('filterRound'),
   filterMatch:     $('filterMatch'),
   filterSubject:   $('filterSubject'),
+  filterCategory:  $('filterCategory'),
   filterSection:   $('filterSection'),
   clearFilters:    $('clearFilters'),
   exportBtn:       $('exportBtn'),
@@ -156,10 +169,193 @@ const dom = {
   statSubjects: $('statSubjects'),
   statRounds:   $('statRounds'),
   statMatches:  $('statMatches'),
+  statCategories: $('statCategories'),
   chartSubject: $('chartSubject'),
   chartRound:   $('chartRound'),
   chartMatch:   $('chartMatch'),
+  chartCategory:$('chartCategory'),
+
+  // Admin panel
+  adminTab:            $('adminTab'),
+  adminEmailInput:     $('adminEmailInput'),
+  adminLoadUserBtn:    $('adminLoadUserBtn'),
+  adminFeatureChecks:  $('adminFeatureChecks'),
+  adminGrantsHead:     $('adminGrantsHead'),
+  adminGrantsBody:     $('adminGrantsBody'),
+  adminGrantsTable:    $('adminGrantsTable'),
+  adminGrantsEmpty:    $('adminGrantsEmpty'),
+  adminFeatureCatalog: $('adminFeatureCatalog'),
 };
+
+// ════════════════════════════════════
+//  QTYPE HELPER
+// ════════════════════════════════════
+// Every row is either 'Competition' or 'Training'. Legacy rows in db.json
+// that predate this feature have no QType field at all — treat those as
+// Competition so existing data keeps working unmodified.
+function getQType(row) {
+  return row && row.QType === 'Training' ? 'Training' : 'Competition';
+}
+
+// ════════════════════════════════════
+//  SUPABASE CLIENT ACCESS
+// ════════════════════════════════════
+// config.js (loaded before this file) creates the client as a top-level
+// `var _sb`, which — because it's a plain <script> tag, not a module —
+// lands on window automatically. It's also re-exposed as window._scqSupabase.
+// We check both so this keeps working if either name changes upstream.
+function getSb() {
+  return window._scqSupabase || window._sb || null;
+}
+
+// ════════════════════════════════════
+//  FEATURE FLAGS
+// ════════════════════════════════════
+// Pulls this user's effective feature set + admin status from Supabase.
+// Fails OPEN (everything visible) on any error — this is a UI convenience
+// layer, not a security boundary, so an RPC hiccup should never lock
+// someone out of their own toolbar. Real access control happens server-side
+// in the qb_admin_* RPCs regardless of what this returns.
+async function loadFeatureFlags() {
+  const sb = getSb();
+  if (!sb) {
+    console.warn('Supabase client not found (window._scqSupabase / window._sb) — feature flags unavailable, showing all widgets.');
+    return;
+  }
+  try {
+    const [{ data: featRows, error: featErr }, { data: isAdmin, error: adminErr }] = await Promise.all([
+      sb.rpc('get_my_qb_features'),
+      sb.rpc('am_i_qb_admin'),
+    ]);
+    if (featErr) throw featErr;
+    state.features = {};
+    (featRows || []).forEach(r => { state.features[r.feature_key] = !!r.enabled; });
+    if (adminErr) throw adminErr;
+    state.isAdmin = isAdmin === true;
+  } catch (err) {
+    console.error('Failed to load feature flags — defaulting to all widgets visible:', err);
+  }
+}
+
+// Hides any element carrying data-feature="key" when state.features[key]
+// is explicitly false. Elements with no matching catalog entry (RPC
+// failure, or a feature not yet seeded) stay visible — fail open.
+function applyFeatureGating() {
+  document.querySelectorAll('[data-feature]').forEach(el => {
+    const enabled = state.features[el.dataset.feature];
+    el.style.display = enabled === false ? 'none' : '';
+  });
+  if (dom.adminTab) dom.adminTab.hidden = !state.isAdmin;
+}
+
+
+// ════════════════════════════════════
+//  ADMIN PANEL
+// ════════════════════════════════════
+let _adminFeatureCatalog = [];  // cached catalog rows {key,label,description,default_enabled}
+let _adminCurrentEmail   = '';  // email currently loaded in the checkbox grid
+
+async function renderAdminPanel() {
+  const sb = getSb();
+  if (!sb) {
+    dom.adminFeatureCatalog.innerHTML = `<p class="admin-hint">Supabase client not available.</p>`;
+    return;
+  }
+  const { data: features, error: fErr } = await sb.from('qb_features').select('*').order('sort_order');
+  if (fErr) { showToast('Failed to load feature catalog'); console.error(fErr); return; }
+  _adminFeatureCatalog = features || [];
+
+  renderAdminFeatureCatalogList();
+  await renderAdminGrantsTable();
+  if (_adminCurrentEmail) await loadAdminUserChecks(_adminCurrentEmail);
+}
+
+function renderAdminFeatureCatalogList() {
+  dom.adminFeatureCatalog.innerHTML = _adminFeatureCatalog.map(f => `
+    <div class="afc-row">
+      <span class="afc-key">${esc(f.key)}</span>
+      <span>${esc(f.label)}</span>
+      <span class="afc-default">default: ${f.default_enabled ? 'ON' : 'OFF'}</span>
+    </div>`).join('') || '<p class="admin-hint">No features in the catalog yet — add rows to qb_features.</p>';
+}
+
+async function loadAdminUserChecks(email) {
+  const sb = getSb();
+  _adminCurrentEmail = email.trim().toLowerCase();
+  if (!_adminCurrentEmail) { dom.adminFeatureChecks.innerHTML = ''; return; }
+
+  const { data: grants, error } = await sb.rpc('qb_admin_list_grants');
+  if (error) { showToast('Failed to load grants — are you registered as an admin?'); console.error(error); return; }
+
+  const grantMap = {};
+  (grants || []).filter(g => g.user_email === _adminCurrentEmail)
+    .forEach(g => { grantMap[g.feature_key] = g.enabled; });
+
+  dom.adminFeatureChecks.innerHTML = _adminFeatureCatalog.map(f => {
+    const explicit = Object.prototype.hasOwnProperty.call(grantMap, f.key);
+    const checked  = explicit ? grantMap[f.key] : f.default_enabled;
+    return `
+      <label class="admin-feature-check-row">
+        <input type="checkbox" data-feature-key="${esc(f.key)}" ${checked ? 'checked' : ''}>
+        <span class="afc-label">${esc(f.label)}</span>
+        <span class="afc-desc">${esc(f.description || '')}${explicit ? '' : ' · using default'}</span>
+      </label>`;
+  }).join('') || '<p class="admin-hint">No features in the catalog yet.</p>';
+
+  dom.adminFeatureChecks.querySelectorAll('input[type="checkbox"]').forEach(input => {
+    input.addEventListener('change', async () => {
+      const key = input.dataset.featureKey;
+      const wasChecked = input.checked;
+      const { error } = await sb.rpc('qb_admin_set_feature', {
+        p_user_email: _adminCurrentEmail, p_feature_key: key, p_enabled: wasChecked
+      });
+      if (error) {
+        showToast('Save failed — are you registered as an admin?');
+        console.error(error);
+        input.checked = !wasChecked;
+        return;
+      }
+      showToast(`${key} ${wasChecked ? 'enabled' : 'disabled'} for ${_adminCurrentEmail}`);
+      renderAdminGrantsTable();
+    });
+  });
+}
+
+async function renderAdminGrantsTable() {
+  const sb = getSb();
+  const { data: grants, error } = await sb.rpc('qb_admin_list_grants');
+  if (error) { console.error(error); return; }
+
+  if (!grants || grants.length === 0) {
+    dom.adminGrantsTable.style.display = 'none';
+    dom.adminGrantsEmpty.hidden = false;
+    return;
+  }
+  dom.adminGrantsTable.style.display = '';
+  dom.adminGrantsEmpty.hidden = true;
+  dom.adminGrantsHead.innerHTML = `<th>Email</th><th>Feature</th><th>Enabled</th><th>Updated</th><th></th>`;
+  dom.adminGrantsBody.innerHTML = grants.map(g => `
+    <tr>
+      <td>${esc(g.user_email)}</td>
+      <td>${esc(g.feature_key)}</td>
+      <td>${g.enabled ? '✓ On' : '✕ Off'}</td>
+      <td class="col-num">${new Date(g.updated_at).toLocaleDateString()}</td>
+      <td><button class="admin-remove-btn" data-email="${esc(g.user_email)}" data-key="${esc(g.feature_key)}"
+        title="Remove grant — reverts to feature default">✕</button></td>
+    </tr>`).join('');
+
+  dom.adminGrantsBody.querySelectorAll('.admin-remove-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const { error } = await sb.rpc('qb_admin_remove_grant', {
+        p_user_email: btn.dataset.email, p_feature_key: btn.dataset.key
+      });
+      if (error) { showToast('Remove failed'); console.error(error); return; }
+      showToast('Grant removed — reverted to default');
+      renderAdminGrantsTable();
+      if (_adminCurrentEmail === btn.dataset.email) loadAdminUserChecks(_adminCurrentEmail);
+    });
+  });
+}
 
 // ════════════════════════════════════
 //  INIT
@@ -172,6 +368,11 @@ async function init() {
   if (typeof window.marked !== 'undefined') {
     window.marked.setOptions({ gfm: true, headerIds: false, mangle: false });
   }
+
+  // Feature flags — must resolve before setupEventListeners() so gated
+  // widgets are hidden before the user can interact with them at all.
+  await loadFeatureFlags();
+  applyFeatureGating();
 
   try {
     const res = await fetch('db.json');
@@ -223,7 +424,21 @@ function buildFilterOptions() {
   populate(dom.filterRound,   unique('Round'));
   populate(dom.filterMatch,   unique('Match'));
   populate(dom.filterSubject, unique('Subject'));
+  populate(dom.filterCategory,unique('Category'));
   populate(dom.filterSection, unique('Section'));
+
+  syncQTypeFilterVisibility();
+}
+
+// Show/hide the Year/Round/Match/Section group vs. the Category group
+// based on the selected Type filter. When "All Types" is selected both
+// stay visible (mixed data just renders blank in whichever column doesn't apply).
+function syncQTypeFilterVisibility() {
+  const type = dom.filterType.value;
+  const hideComp  = type === 'Training';
+  const hideTrain = type === 'Competition';
+  document.querySelectorAll('.qtype-comp-only').forEach(el => el.classList.toggle('qtype-hidden', hideComp));
+  document.querySelectorAll('.qtype-train-only').forEach(el => el.classList.toggle('qtype-hidden', hideTrain));
 }
 
 
@@ -310,21 +525,25 @@ function sortData() {
 //  FILTERING
 // ════════════════════════════════════
 function applyFilters() {
-  const search  = dom.globalSearch.value.trim().toLowerCase();
-  const year    = dom.filterYear.value;
-  const round   = dom.filterRound.value;
-  const match   = dom.filterMatch.value;
-  const subject = dom.filterSubject.value;
-  const section = dom.filterSection.value;
+  const search   = dom.globalSearch.value.trim().toLowerCase();
+  const type     = dom.filterType.value;
+  const year     = dom.filterYear.value;
+  const round    = dom.filterRound.value;
+  const match    = dom.filterMatch.value;
+  const subject  = dom.filterSubject.value;
+  const category = dom.filterCategory.value;
+  const section  = dom.filterSection.value;
 
   dom.searchClear.classList.toggle('visible', search.length > 0);
 
   state.filteredData = state.allData.filter(row => {
-    if (year    && String(row.Year)    !== year)    return false;
-    if (round   && String(row.Round)   !== round)   return false;
-    if (match   && String(row.Match)   !== match)   return false;
-    if (subject && row.Subject         !== subject) return false;
-    if (section && row.Section         !== section) return false;
+    if (type     && getQType(row)      !== type)     return false;
+    if (year     && String(row.Year)   !== year)     return false;
+    if (round    && String(row.Round)  !== round)    return false;
+    if (match    && String(row.Match)  !== match)    return false;
+    if (subject  && row.Subject        !== subject)  return false;
+    if (category && row.Category       !== category) return false;
+    if (section  && row.Section        !== section)  return false;
     if (search) {
       const haystack = Object.values(row).join(' ').toLowerCase();
       if (!haystack.includes(search)) return false;
@@ -401,6 +620,13 @@ function renderTable() {
 
       if (col.key === 'Subject') {
         td.innerHTML = `<span class="subject-badge">${esc(val)}</span>`;
+
+      } else if (col.key === 'QType') {
+        const qt = getQType(row);
+        td.innerHTML = `<span class="qtype-badge qtype-${qt.toLowerCase()}">${qt}</span>`;
+
+      } else if (col.key === 'Category') {
+        td.innerHTML = val ? `<span class="subject-badge">${esc(val)}</span>` : '';
 
       } else if (col.key === 'Answer') {
         td.className = 'col-answer';
@@ -2062,11 +2288,13 @@ function renderFlashcard() {
   dom.fcCounter.textContent = `Card ${i + 1} of ${cards.length}`;
   dom.fcQuestion.innerHTML = renderFull(card.Question, false);
   dom.fcAnswer.innerHTML   = renderFull(card.Answer,   false);
-  dom.fcMeta.innerHTML = `
-    <span class="meta-tag">${card.Subject}</span>
-    <span class="meta-tag">Yr ${card.Year}</span>
-    <span class="meta-tag">Rd ${card.Round}</span>
-    <span class="meta-tag">Mtch ${card.Match}</span>`;
+  dom.fcMeta.innerHTML = getQType(card) === 'Training'
+    ? `<span class="meta-tag">${esc(card.Subject)}</span>
+       <span class="meta-tag">${esc(card.Category || '—')}</span>`
+    : `<span class="meta-tag">${esc(card.Subject)}</span>
+       <span class="meta-tag">Yr ${esc(card.Year)}</span>
+       <span class="meta-tag">Rd ${esc(card.Round)}</span>
+       <span class="meta-tag">Mtch ${esc(card.Match)}</span>`;
   dom.fcProgressBar.style.width = `${((i + 1) / cards.length) * 100}%`;
 
   // ── Media panel on the back of the card (image, YouTube, info) ──
@@ -2125,11 +2353,13 @@ function renderQuizQuestion() {
   const card = q.cards[q.index];
   dom.quizQNum.textContent     = `Question ${q.index + 1} of ${q.cards.length}`;
   dom.quizQuestion.innerHTML   = renderFull(card.Question, false);
-  dom.quizMeta.innerHTML = `
-    <span class="meta-tag">${card.Subject}</span>
-    <span class="meta-tag">Yr ${card.Year}</span>
-    <span class="meta-tag">Rd ${card.Round}</span>
-    <span class="meta-tag">Mtch ${card.Match}</span>`;
+  dom.quizMeta.innerHTML = getQType(card) === 'Training'
+    ? `<span class="meta-tag">${esc(card.Subject)}</span>
+       <span class="meta-tag">${esc(card.Category || '—')}</span>`
+    : `<span class="meta-tag">${esc(card.Subject)}</span>
+       <span class="meta-tag">Yr ${esc(card.Year)}</span>
+       <span class="meta-tag">Rd ${esc(card.Round)}</span>
+       <span class="meta-tag">Mtch ${esc(card.Match)}</span>`;
   dom.quizProgressBar.style.width = `${(q.index / q.cards.length) * 100}%`;
   dom.quizInput.focus();
 }
@@ -2206,14 +2436,20 @@ function shuffleArray(arr) {
 //  STATS
 // ════════════════════════════════════
 function renderStats() {
-  const data = state.filteredData;
-  dom.statTotal.textContent    = data.length;
-  dom.statSubjects.textContent = new Set(data.map(r => r.Subject)).size;
-  dom.statRounds.textContent   = new Set(data.map(r => r.Round)).size;
-  dom.statMatches.textContent  = new Set(data.map(r => r.Match)).size;
-  renderBarChart(dom.chartSubject, countBy(data, 'Subject'));
-  renderBarChart(dom.chartRound,   countBy(data, 'Round'));
-  renderMatchChart(data);
+  const data      = state.filteredData;
+  const compData  = data.filter(r => getQType(r) === 'Competition');
+  const trainData = data.filter(r => getQType(r) === 'Training');
+
+  dom.statTotal.textContent      = data.length;
+  dom.statSubjects.textContent   = new Set(data.map(r => r.Subject)).size;
+  dom.statRounds.textContent     = new Set(compData.map(r => r.Round)).size;
+  dom.statMatches.textContent    = new Set(compData.map(r => r.Match)).size;
+  dom.statCategories.textContent = new Set(trainData.map(r => r.Category).filter(Boolean)).size;
+
+  renderBarChart(dom.chartSubject,  countBy(data, 'Subject'));
+  renderBarChart(dom.chartRound,    countBy(compData, 'Round'));
+  renderMatchChart(compData);
+  renderBarChart(dom.chartCategory, countBy(trainData, 'Category'));
 }
 
 function countBy(data, key) {
@@ -2292,6 +2528,13 @@ function switchMode(mode) {
   if (mode === 'stats')     renderStats();
   if (mode === 'flashcard') renderFlashcard();
   if (mode === 'quiz')      renderQuizQuestion();
+  if (mode === 'admin') {
+    // Tab is hidden for non-admins, but the RPCs are the real gate — every
+    // qb_admin_* call checks am_i_qb_admin() server-side regardless of
+    // what the client thinks, so this is defense in depth, not the boundary.
+    if (!state.isAdmin) { switchMode('table'); return; }
+    renderAdminPanel();
+  }
 }
 
 
@@ -2321,18 +2564,26 @@ function setupEventListeners() {
     applyFilters();
     dom.globalSearch.focus();
   });
-  dom.filterYear.addEventListener('change',    applyFilters);
-  dom.filterRound.addEventListener('change',   applyFilters);
-  dom.filterMatch.addEventListener('change',   applyFilters);
-  dom.filterSubject.addEventListener('change', applyFilters);
-  dom.filterSection.addEventListener('change', applyFilters);
+  dom.filterType.addEventListener('change', () => {
+    syncQTypeFilterVisibility();
+    applyFilters();
+  });
+  dom.filterYear.addEventListener('change',     applyFilters);
+  dom.filterRound.addEventListener('change',    applyFilters);
+  dom.filterMatch.addEventListener('change',    applyFilters);
+  dom.filterSubject.addEventListener('change',  applyFilters);
+  dom.filterCategory.addEventListener('change', applyFilters);
+  dom.filterSection.addEventListener('change',  applyFilters);
   dom.clearFilters.addEventListener('click', () => {
-    dom.globalSearch.value = '';
-    dom.filterYear.value    = '';
-    dom.filterRound.value   = '';
-    dom.filterMatch.value   = '';
-    dom.filterSubject.value = '';
-    dom.filterSection.value = '';
+    dom.globalSearch.value   = '';
+    dom.filterType.value     = '';
+    dom.filterYear.value     = '';
+    dom.filterRound.value    = '';
+    dom.filterMatch.value    = '';
+    dom.filterSubject.value  = '';
+    dom.filterCategory.value = '';
+    dom.filterSection.value  = '';
+    syncQTypeFilterVisibility();
     applyFilters();
     showToast('Filters cleared');
   });
@@ -2343,6 +2594,16 @@ function setupEventListeners() {
   // Column toggle
   dom.colToggleBtn.addEventListener('click', () => {
     dom.colPanel.hidden = !dom.colPanel.hidden;
+  });
+
+  // ── Admin panel ──
+  dom.adminLoadUserBtn.addEventListener('click', () => {
+    const email = dom.adminEmailInput.value.trim();
+    if (!email) { showToast('Enter an email first'); return; }
+    loadAdminUserChecks(email);
+  });
+  dom.adminEmailInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') dom.adminLoadUserBtn.click();
   });
 
   // ── ReadAll TTS toggle ──

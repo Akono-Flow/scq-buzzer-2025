@@ -209,6 +209,31 @@ function getSb() {
 }
 
 // ════════════════════════════════════
+//  COPY/PASTE DETERRENCE
+// ════════════════════════════════════
+// This is a UX deterrent, not a security boundary — anyone who can see
+// the content in their browser already has it in the DOM/network response.
+// It stops casual right-click-save / select-all-copy, nothing more.
+// Admins are exempt so content-editing workflows aren't hampered.
+function initCopyProtection() {
+  if (state.isAdmin) return;
+
+  document.querySelectorAll('.copy-protected').forEach(el => {
+    el.addEventListener('contextmenu', e => e.preventDefault());
+    el.addEventListener('copy',  e => { e.preventDefault(); showToast('Copying is disabled for questions/answers'); });
+    el.addEventListener('cut',   e => e.preventDefault());
+    el.addEventListener('dragstart', e => e.preventDefault());
+  });
+
+  document.addEventListener('keydown', e => {
+    const inProtected = e.target.closest && e.target.closest('.copy-protected');
+    if (!inProtected) return; // never interferes with search/filter typing elsewhere
+    const combo = (e.ctrlKey || e.metaKey) && ['c', 'x'].includes(e.key.toLowerCase());
+    if (combo) { e.preventDefault(); showToast('Copying is disabled for questions/answers'); }
+  });
+}
+
+// ════════════════════════════════════
 //  FEATURE FLAGS
 // ════════════════════════════════════
 // Pulls this user's effective feature set + admin status from Supabase.
@@ -373,11 +398,21 @@ async function init() {
   // widgets are hidden before the user can interact with them at all.
   await loadFeatureFlags();
   applyFeatureGating();
+  initCopyProtection();
 
   try {
-    const res = await fetch('db.json');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    state.allData = await res.json();
+    // Question data now lives in Supabase (qb_questions) behind a
+    // select-only-if-authenticated RLS policy, replacing the old public
+    // db.json. Unlike a static file, an unauthenticated request to this
+    // table is rejected by Postgres — requireAppAccess() already
+    // guarantees we have a session by the time init() runs.
+    const sb = getSb();
+    if (!sb) throw new Error('Supabase client not available — cannot load questions.');
+
+    const { data, error } = await sb.from('qb_questions').select('*').order('Pkey', { ascending: true });
+    if (error) throw error;
+
+    state.allData = data || [];
     state.filteredData = [...state.allData];
 
     buildFilterOptions();
@@ -394,10 +429,10 @@ async function init() {
   } catch (err) {
     dom.loadingOverlay.innerHTML = `
       <p style="color:var(--incorrect);font-family:var(--font-mono);text-align:center;padding:20px">
-        ✕ Failed to load db.json<br>
+        ✕ Failed to load questions<br>
         <span style="font-size:0.8rem;color:var(--text-muted)">${err.message}</span>
       </p>`;
-    console.error('Failed to load db.json:', err);
+    console.error('Failed to load questions from Supabase:', err);
   }
 }
 

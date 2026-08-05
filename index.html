@@ -52,24 +52,27 @@
         <button class="mode-tab" data-mode="stats" role="tab" aria-selected="false">
           <span class="tab-icon">◉</span> Stats
         </button>
+        <button class="mode-tab" data-mode="admin" id="adminTab" role="tab" aria-selected="false" hidden>
+          <span class="tab-icon">⚙</span> Admin
+        </button>
       </div>
     </div>
     <div class="toolbar-right">
       <!-- Table-only toggle controls (hidden in other modes via JS class) -->
-      <button class="action-btn tbl-only-btn" id="toggleAnswersBtn"
+      <button class="action-btn tbl-only-btn" id="toggleAnswersBtn" data-feature="toggle_answers"
         title="Toggle all answers — show or hide answer text across all rows"
         aria-pressed="false">◉ Answers</button>
-      <button class="action-btn tbl-only-btn" id="toggleContentBtn"
+      <button class="action-btn tbl-only-btn" id="toggleContentBtn" data-feature="toggle_content"
         title="Toggle all content — hide or reveal every cell across all rows"
         aria-pressed="false">⊟ Content</button>
       <div class="toolbar-divider tbl-only-btn"></div>
       <!-- ReadAll TTS toggle — available in table, flashcard and quiz modes -->
-      <button class="action-btn" id="readAllBtn"
+      <button class="action-btn" id="readAllBtn" data-feature="read_all_tts"
         title="Read All Text — OFF: speaks only foreign-delimited segments · ON: speaks entire text with language switching"
         aria-pressed="false">▶ Read All</button>
       <div class="toolbar-divider"></div>
-      <<button class="action-btn" id="exportBtn" title="Export filtered data to CSV">↓ Export CSV</button>
-      <button class="action-btn" id="colToggleBtn" title="Toggle column visibility">⊟ Columns</button>
+      <button class="action-btn" id="exportBtn" data-feature="export_csv" title="Export filtered data to CSV">↓ Export CSV</button>
+      <button class="action-btn" id="colToggleBtn" data-feature="column_toggle" title="Toggle column visibility">⊟ Columns</button>
     </div>
   </div>
 
@@ -83,14 +86,22 @@
       </div>
     </div>
     <div class="filter-group">
+      <label class="filter-label">Type</label>
+      <select id="filterType" class="filter-select">
+        <option value="">All Types</option>
+        <option value="Competition">Competition</option>
+        <option value="Training">Training</option>
+      </select>
+    </div>
+    <div class="filter-group qtype-comp-only">
       <label class="filter-label">Year</label>
       <select id="filterYear" class="filter-select"><option value="">All</option></select>
     </div>
-    <div class="filter-group">
+    <div class="filter-group qtype-comp-only">
       <label class="filter-label">Round</label>
       <select id="filterRound" class="filter-select"><option value="">All</option></select>
     </div>
-    <div class="filter-group">
+    <div class="filter-group qtype-comp-only">
       <label class="filter-label">Match</label>
       <select id="filterMatch" class="filter-select"><option value="">All</option></select>
     </div>
@@ -98,7 +109,11 @@
       <label class="filter-label">Subject</label>
       <select id="filterSubject" class="filter-select"><option value="">All Subjects</option></select>
     </div>
-    <div class="filter-group">
+    <div class="filter-group qtype-train-only">
+      <label class="filter-label">Category</label>
+      <select id="filterCategory" class="filter-select"><option value="">All Categories</option></select>
+    </div>
+    <div class="filter-group qtype-comp-only">
       <label class="filter-label">Section</label>
       <select id="filterSection" class="filter-select"><option value="">All</option></select>
     </div>
@@ -256,6 +271,10 @@
             <div class="stat-num" id="statMatches">—</div>
             <div class="stat-lbl">Matches</div>
           </div>
+          <div class="stat-card">
+            <div class="stat-num" id="statCategories">—</div>
+            <div class="stat-lbl">Training Categories</div>
+          </div>
         </div>
         <div class="charts-row">
           <div class="chart-card">
@@ -273,6 +292,49 @@
             <div class="bar-chart" id="chartMatch"></div>
           </div>
         </div>
+        <div class="charts-row">
+          <div class="chart-card chart-wide">
+            <h3 class="chart-title">Training Questions by Category</h3>
+            <div class="bar-chart" id="chartCategory"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ADMIN MODE (admins only — tab is hidden via JS for everyone else) ── -->
+    <section class="mode-section" id="mode-admin" hidden>
+      <div class="admin-container">
+
+        <div class="admin-panel-card">
+          <h3 class="chart-title">Grant Feature Access</h3>
+          <p class="admin-hint">Enter a user's email, check the features they should have. Each checkbox saves immediately.</p>
+          <div class="admin-user-row">
+            <input type="email" id="adminEmailInput" class="filter-input" placeholder="user@example.com" autocomplete="off" />
+            <button class="action-btn" id="adminLoadUserBtn">Load User</button>
+          </div>
+          <div class="admin-feature-checks" id="adminFeatureChecks"></div>
+        </div>
+
+        <div class="admin-panel-card">
+          <h3 class="chart-title">Current Grants</h3>
+          <div class="admin-grants-table-wrap">
+            <table class="data-table admin-grants-table" id="adminGrantsTable">
+              <thead><tr id="adminGrantsHead"></tr></thead>
+              <tbody id="adminGrantsBody"></tbody>
+            </table>
+            <div class="empty-state" id="adminGrantsEmpty" hidden>
+              <span class="empty-icon">◌</span>
+              <p>No explicit grants yet — everyone is on feature defaults.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-panel-card">
+          <h3 class="chart-title">Feature Catalog</h3>
+          <p class="admin-hint">Defaults apply to every user unless a grant above overrides it.</p>
+          <div class="admin-feature-catalog" id="adminFeatureCatalog"></div>
+        </div>
+
       </div>
     </section>
 

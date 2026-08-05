@@ -352,6 +352,13 @@ th.sort-asc .sort-indicator, th.sort-desc .sort-indicator { opacity: 1; color: v
 }
 .highlight { background: var(--accent); color: var(--text-inverse); border-radius: 2px; padding: 0 1px; }
 
+/* The [hidden] attribute must always win over any class's `display` value.
+   Without this, any element whose class sets display:flex/block (mode-tab,
+   quiz-card, quiz-reveal, quiz-finished, etc.) stays visually visible even
+   after JS sets el.hidden = true, since author CSS overrides the browser's
+   default [hidden]{display:none} regardless of selector specificity. */
+[hidden] { display: none !important; }
+
 /* ── QUESTION TYPE BADGE (Competition / Training) ── */
 .qtype-badge {
   display: inline-block; font-family: var(--font-mono); font-size: 0.68rem;

@@ -332,6 +332,34 @@
         <div class="admin-panel-card">
           <h3 class="chart-title">Feature Catalog</h3>
           <p class="admin-hint">Defaults apply to every user unless a grant above overrides it.</p>
+
+          <form id="adminAddFeatureForm" class="admin-add-feature-form">
+            <div class="admin-add-feature-row">
+              <input type="text" id="adminFeatureKeyInput" class="filter-input"
+                placeholder="feature_key (snake_case, matches data-feature=\"\")" autocomplete="off" required
+                pattern="[a-z][a-z0-9_]*" title="lowercase letters, numbers, underscores — must start with a letter">
+              <input type="text" id="adminFeatureLabelInput" class="filter-input"
+                placeholder="Display label" autocomplete="off" required>
+            </div>
+            <div class="admin-add-feature-row">
+              <input type="text" id="adminFeatureDescInput" class="filter-input"
+                placeholder="Description (optional)" autocomplete="off">
+              <input type="number" id="adminFeatureSortInput" class="filter-input admin-sort-input"
+                placeholder="Sort order" value="60" min="0" step="10">
+            </div>
+            <div class="admin-add-feature-row admin-add-feature-row-actions">
+              <label class="admin-default-check">
+                <input type="checkbox" id="adminFeatureDefaultInput">
+                <span>Default ON for everyone</span>
+              </label>
+              <button type="submit" class="action-btn" id="adminAddFeatureBtn">+ Add / Update Feature</button>
+            </div>
+            <p class="admin-hint admin-add-feature-hint">
+              This only adds the feature to the catalog — to make it actually control a widget, add
+              <code>data-feature="feature_key"</code> to that element in the HTML.
+            </p>
+          </form>
+
           <div class="admin-feature-catalog" id="adminFeatureCatalog"></div>
         </div>
 

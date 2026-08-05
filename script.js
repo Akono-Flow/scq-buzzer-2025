@@ -185,6 +185,12 @@ const dom = {
   adminGrantsTable:    $('adminGrantsTable'),
   adminGrantsEmpty:    $('adminGrantsEmpty'),
   adminFeatureCatalog: $('adminFeatureCatalog'),
+  adminAddFeatureForm:    $('adminAddFeatureForm'),
+  adminFeatureKeyInput:   $('adminFeatureKeyInput'),
+  adminFeatureLabelInput: $('adminFeatureLabelInput'),
+  adminFeatureDescInput:  $('adminFeatureDescInput'),
+  adminFeatureSortInput:  $('adminFeatureSortInput'),
+  adminFeatureDefaultInput: $('adminFeatureDefaultInput'),
 };
 
 // ════════════════════════════════════
@@ -2639,6 +2645,39 @@ function setupEventListeners() {
   });
   dom.adminEmailInput.addEventListener('keydown', e => {
     if (e.key === 'Enter') dom.adminLoadUserBtn.click();
+  });
+  dom.adminAddFeatureForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const sb = getSb();
+    const key   = dom.adminFeatureKeyInput.value.trim();
+    const label = dom.adminFeatureLabelInput.value.trim();
+    const desc  = dom.adminFeatureDescInput.value.trim();
+    const sort  = parseInt(dom.adminFeatureSortInput.value, 10) || 0;
+    const defaultEnabled = dom.adminFeatureDefaultInput.checked;
+
+    if (!/^[a-z][a-z0-9_]*$/.test(key)) {
+      showToast('Feature key must be lowercase letters/numbers/underscores, starting with a letter');
+      return;
+    }
+    if (!label) { showToast('Enter a display label'); return; }
+
+    const btn = dom.adminAddFeatureForm.querySelector('#adminAddFeatureBtn');
+    btn.disabled = true;
+    const { error } = await sb.rpc('qb_admin_upsert_feature', {
+      p_key: key, p_label: label, p_description: desc || null,
+      p_default_enabled: defaultEnabled, p_sort_order: sort,
+    });
+    btn.disabled = false;
+
+    if (error) {
+      showToast('Failed to save feature — are you registered as an admin?');
+      console.error(error);
+      return;
+    }
+    showToast(`Feature "${key}" saved to the catalog`);
+    dom.adminAddFeatureForm.reset();
+    dom.adminFeatureSortInput.value = 60;
+    renderAdminPanel();
   });
 
   // ── ReadAll TTS toggle ──

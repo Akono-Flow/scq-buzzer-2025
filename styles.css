@@ -359,6 +359,16 @@ th.sort-asc .sort-indicator, th.sort-desc .sort-indicator { opacity: 1; color: v
    default [hidden]{display:none} regardless of selector specificity. */
 [hidden] { display: none !important; }
 
+/* ── COPY/PASTE DETERRENCE ──
+   UX-level deterrent only — see chat notes on why this can't be real
+   security for logged-in users. Blocks casual select/copy/right-click
+   on question & answer content; admins are exempt (see initCopyProtection
+   in script.js) so content editing workflows aren't hampered. */
+.copy-protected, .copy-protected * {
+  -webkit-user-select: none; -moz-user-select: none; user-select: none;
+}
+.copy-protected img { -webkit-user-drag: none; user-drag: none; }
+
 /* ── QUESTION TYPE BADGE (Competition / Training) ── */
 .qtype-badge {
   display: inline-block; font-family: var(--font-mono); font-size: 0.68rem;

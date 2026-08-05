@@ -352,6 +352,18 @@ th.sort-asc .sort-indicator, th.sort-desc .sort-indicator { opacity: 1; color: v
 }
 .highlight { background: var(--accent); color: var(--text-inverse); border-radius: 2px; padding: 0 1px; }
 
+/* ── QUESTION TYPE BADGE (Competition / Training) ── */
+.qtype-badge {
+  display: inline-block; font-family: var(--font-mono); font-size: 0.68rem;
+  padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border-strong); white-space: nowrap;
+}
+.qtype-badge.qtype-competition { background: var(--bg-elevated); color: var(--text-secondary); }
+.qtype-badge.qtype-training { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); }
+
+/* ── QTYPE-SCOPED FILTER GROUPS ── */
+/* Hidden via JS (inline style) based on the selected Type filter; base state is visible. */
+.qtype-hidden { display: none !important; }
+
 /* ── INFO ICON BUTTON ── */
 /*
   The ⓘ icon sits inline in the Answer cell.
@@ -1314,6 +1326,41 @@ tr.row-answer-hidden td.col-answer > span:first-child {
 .bar-track { height: 10px; background: var(--bg-elevated); border-radius: 5px; overflow: hidden; }
 .bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent-dim), var(--accent)); border-radius: 5px; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); width: 0; }
 .bar-count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); text-align: right; }
+
+
+/* ═══════════════════════════════════
+   ADMIN MODE
+   ═══════════════════════════════════ */
+.admin-container { display: flex; flex-direction: column; gap: 18px; }
+.admin-panel-card {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);
+}
+.admin-hint { font-size: 0.82rem; color: var(--text-secondary); margin: -8px 0 16px; }
+.admin-user-row { display: flex; gap: 10px; margin-bottom: 16px; }
+.admin-user-row .filter-input { flex: 1; max-width: 360px; }
+.admin-feature-checks { display: flex; flex-direction: column; gap: 10px; }
+.admin-feature-check-row {
+  display: flex; align-items: center; gap: 12px; padding: 10px 12px;
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-md);
+}
+.admin-feature-check-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+.admin-feature-check-row .afc-label { font-weight: 600; font-size: 0.85rem; }
+.admin-feature-check-row .afc-desc { font-size: 0.74rem; color: var(--text-muted); margin-left: auto; text-align: right; }
+.admin-grants-table-wrap { overflow-x: auto; }
+.admin-grants-table th, .admin-grants-table td { white-space: nowrap; }
+.admin-grants-table .admin-remove-btn {
+  border: none; background: none; color: var(--incorrect); cursor: pointer; font-size: 0.9rem;
+  padding: 2px 6px; border-radius: 4px;
+}
+.admin-grants-table .admin-remove-btn:hover { background: var(--bg-elevated); }
+.admin-feature-catalog { display: flex; flex-direction: column; gap: 8px; }
+.admin-feature-catalog .afc-row {
+  display: flex; align-items: center; gap: 10px; padding: 8px 12px;
+  background: var(--bg-elevated); border-radius: var(--radius-md); font-size: 0.8rem;
+}
+.admin-feature-catalog .afc-key { font-family: var(--font-mono); color: var(--accent); }
+.admin-feature-catalog .afc-default { margin-left: auto; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); }
 
 
 /* ═══════════════════════════════════
